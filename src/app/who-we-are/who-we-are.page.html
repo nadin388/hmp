@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Who We Are</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">settings</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="group">
+    <img [src]="group.image" alt="Image" />
+    <h1><b>{{ group.name }}</b></h1>
+    <p>{{ group.description }}</p>
+
+    <div class="like-section">
+      <ion-button fill="outline" shape="round" (click)="incrementLikes()">
+        <ion-icon name="heart">
+        </ion-icon>
+        {{ likes }}
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

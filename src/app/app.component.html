@@ -1,3 +1,38 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-menu auto-hide="true" contentId="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>List Feature</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list>
+          <ion-menu-toggle>
+            <ion-item routerLink="/home">
+              <ion-icon name="home" slot="start"></ion-icon>
+              <ion-label>Home</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item routerLink="/game">
+              <ion-icon name="game-controller-outline" slot="start"></ion-icon>
+              <ion-label>Game</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item routerLink="/member">
+              <ion-icon name="person-add-outline" slot="start"></ion-icon>
+              <ion-label>Members</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item routerLink="/schedules">
+              <ion-icon name="calendar-outline" slot="start"></ion-icon>
+              <ion-label>Schedules</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
 </ion-app>
