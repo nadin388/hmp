@@ -18,10 +18,9 @@ export class WhoWeArePage implements OnInit {
     image : 'https://esports.id/img/article/180220230616065757.jpeg' 
   };
 
-  likes: number = 0; // Initialize the likes count
+  likes: number = 0; 
 
-  // Method to increment the likes count
-  incrementLikes() {
+  tambahLikes() {
     this.likes++;
   }
 }
