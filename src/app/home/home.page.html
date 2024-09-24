@@ -25,9 +25,11 @@
   <div class="packages">
     <div class="card" *ngFor="let package of packages" [ngStyle]="
     {'background-image': 'url('+ package.bg + ')'}">
-    <div id="container">
-      <a [routerLink]="['/'+package.name]">{{package.name | titlecase}}</a>
-    </div>
+      <a [routerLink]="['/'+package.name]">
+        <div id="container">
+          <span>{{package.name | titlecase}}</span>
+        </div>
+      </a>
     </div>
   </div>
 
