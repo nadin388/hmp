@@ -13,4 +13,14 @@
       <ion-title size="large">our_schedules</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-list *ngFor="let our_schedules of ourSchedules">
+    <ion-item>
+      <ion-label>
+        {{our_schedules.date}}
+        {{our_schedules.nameEvent}}
+        {{our_schedules.nameGame}}
+        {{our_schedules.nameTeam}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
