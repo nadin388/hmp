@@ -5,26 +5,10 @@
     right: 0;
     top: calc(50% + 40%);
     transform: translateY(-50%);
-    margin: 50px, 50px;
   }
   
-  #container strong {
-    font-size: 20px;
-    line-height: 26px;
-  }
-  
-  #container p {
-    font-size: 16px;
-    line-height: 22px;
-  
-    color: #8c8c8c;
-  
-    margin: 0;
-  }
-  
-  a {
-    text-decoration: none;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  a { 
+    font-family: 'Trebuchet MS';
     color:white;
     font-size: 40px;
     font-weight: bold;
@@ -39,35 +23,18 @@
     transform: translateX(-50%);
   }
   
-  
   .packages {
     padding: 23px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    white-space: normal;
-    padding-right: 0;
-    padding-top: 0;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    justify-content: center;
     align-items: center;
-
-    .card:hover {
-      opacity: 5;
-    }
   
     .card {
-      position:relative;
-      display: block;
       width: 100%;
-      max-width: 700px;
-      height: 100%;
-      max-height:400px;
-      color: #000;
+      max-width: 800px;
       border-radius: 29px;
-      margin-right: 10px;
-      background-size: cover;
+      background-size:cover;
       margin: 20px 0;
       flex: 1 1 400px;
       filter: drop-shadow(0 0 4px grey);
@@ -75,5 +42,8 @@
       transition: opacity 0.3s ease-in-out;
     }
 
+    .card:hover {
+      opacity: 5;
+    }
     
   }
