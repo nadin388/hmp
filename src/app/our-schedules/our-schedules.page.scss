@@ -1,0 +1,35 @@
+.schedule-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0px; /* Sedikit padding untuk jarak dari tepi */
+  }
+  
+  .schedule-date {
+    text-align: left; /* Menempatkan tanggal di kiri */
+    font-size: 1.2em;
+    font-weight: bold;
+    flex-shrink: 0; /* Tanggal tidak menyusut */
+  }
+  
+  .day {
+    font-size: 2em;
+  }
+  
+  .month {
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+  
+  .schedule-event {
+    text-align: center;
+    flex-grow: 1; /* Nama event berada di tengah */
+    font-size: 1.2em;
+  }
+  
+  .schedule-game-team {
+    text-align: right;
+    flex-shrink: 0; /* Bagian game/tim tidak menyusut */
+  }
+  

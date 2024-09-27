@@ -1,26 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-title>our_schedules</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>our_schedules</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">our_schedules</ion-title>
-    </ion-toolbar>
   </ion-header>
-  <ion-list *ngFor="let our_schedules of ourSchedules">
-    <ion-item>
-      <ion-label>
-        {{our_schedules.date}}
-        {{our_schedules.nameEvent}}
-        {{our_schedules.nameGame}}
-        {{our_schedules.nameTeam}}
-      </ion-label>
-    </ion-item>
-  </ion-list>
 </ion-content>
+
+<ion-list *ngFor="let schedule of ourSchedules">
+  <ion-item>
+    <ion-label>
+      <div class="schedule-container">
+        <div class="schedule-date">
+          <span class="day">{{ schedule.date | date: 'dd' }}</span><br>
+          <span class="month">{{ schedule.date | date: 'MMM' | uppercase }}</span>
+        </div>
+        <div class="schedule-event">
+          <span>{{ schedule.nameEvent }}</span>
+        </div>
+        <div class="schedule-game-team">
+          <span>{{ schedule.nameGame }} - {{ schedule.nameTeam }}</span>
+        </div>
+      </div>
+    </ion-label>
+  </ion-item>
+</ion-list>
