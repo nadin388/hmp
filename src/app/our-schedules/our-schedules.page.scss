@@ -1,16 +1,12 @@
 .schedule-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 100%;
-    padding: 0px; 
   }
   
   .schedule-date {
     text-align: left; 
     font-size: 1.2em;
     font-weight: bold;
-    flex-shrink: 0; 
   }
   
   .day {
@@ -19,7 +15,6 @@
   
   .month {
     font-size: 1em;
-    text-transform: uppercase;
   }
   
   .schedule-event {
@@ -30,6 +25,5 @@
   
   .schedule-game-team {
     text-align: right;
-    flex-shrink: 0; 
   }
   
