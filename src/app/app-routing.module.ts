@@ -22,7 +22,12 @@ const routes: Routes = [
   {
     path: 'schedules',
     loadChildren: () => import('./our-schedules/our-schedules.module').then( m => m.OurSchedulesPageModule)
+  },
+  {
+    path: 'achievement/:index',
+    loadChildren: () => import('./achievement/achievement.module').then( m => m.AchievementPageModule)
   }
+
 ];
 @NgModule({
   imports: [
