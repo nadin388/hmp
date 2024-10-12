@@ -26,6 +26,24 @@
               <ion-label>Schedules</ion-label>
             </ion-item>
           </ion-menu-toggle>
+
+            <ion-item (click)="toggleDropdown()">
+              <ion-label>Profil Kelompok</ion-label>
+              <ion-icon slot="start" name="person"></ion-icon>
+              <ion-icon [name]="dropdownOpen ? 'chevron-up' : 'chevron-down'"></ion-icon> 
+            </ion-item>
+            <ion-list *ngIf="dropdownOpen" style ="margin-left: 20px;">
+              <ion-item >
+                <ion-label>Sarah Laura S. (160422015)</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Cennia Lieta H. (160422037)</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-label>Nadine Chow A. (160422027)</ion-label>
+              </ion-item>
+            </ion-list>
+            
         </ion-list>
       </ion-content>
     </ion-menu>
