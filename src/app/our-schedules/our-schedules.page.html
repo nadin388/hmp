@@ -14,8 +14,8 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list *ngFor="let schedule of ourSchedules">
-    <ion-item>
+  <ion-list *ngFor="let schedule of ourSchedules; let i = index">
+    <ion-item routerLink="/schedule-details/{{i}}">
       <ion-label>
         <div class="schedule-container">
           <div class="schedule-date">

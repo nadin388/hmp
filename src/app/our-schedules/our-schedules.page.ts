@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ScheduleserviceService } from '../scheduleservice.service';
+import { NavController } from '@ionic/angular';
+import { ScheduleDetailsPage } from '../schedule-details/schedule-details.page';
 
 @Component({
   selector: 'app-our-schedules',
@@ -7,46 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OurSchedulesPage implements OnInit {
 
-  ourSchedules = [
-    {
-      date : '05-09-2024',
-      nameEvent : 'Regional Qualifer - Valorant',
-      nameGame : "Valorant",
-      nameTeam : 'Team A',
-    },
+  ourSchedules: any = []
+  index = 0;
+  schedule: any;
 
-    {
-      date : '10-09-2024',
-      nameEvent : 'League of Legends Workshop',
-      nameGame : "LOL",
-      nameTeam : 'Team Cs',
-    },
-
-    {
-      date : '07-10-2024',
-      nameEvent : 'Call of Duty Championship',
-      nameGame : "COD",
-      nameTeam : 'Team A',
-    },
-
-    {
-      date : '11-11-2024',
-      nameEvent : 'Dota 2 Livestream',
-      nameGame : "Dota 2",
-      nameTeam : 'Team B',
-    },
-
-    {
-      date : '04-12-2024',
-      nameEvent : 'Fortnite Invitational',
-      nameGame : "Fortnite",
-      nameTeam : 'Team A',
-    },
-  ];
-
-  constructor() { }
+  constructor(private scheduleservice: ScheduleserviceService, public nav: NavController) { }
 
   ngOnInit() {
+    this.ourSchedules = this.scheduleservice.ourSchedules
   }
 
+  getScheduleByIndex(index: number) {
+    return this.ourSchedules[index];
+  }
 }

@@ -26,7 +26,12 @@ const routes: Routes = [
   {
     path: 'achievement/:index',
     loadChildren: () => import('./achievement/achievement.module').then( m => m.AchievementPageModule)
+  },
+  {
+    path: 'schedule-details/:index',
+    loadChildren: () => import('./schedule-details/schedule-details.module').then( m => m.ScheduleDetailsPageModule)
   }
+
 
 ];
 @NgModule({
