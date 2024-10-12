@@ -24,11 +24,8 @@ export class AchievementPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.index = params['index']; 
-      console.log('Index:', this.index);
     this.achievements = this.achievementService.achievements[this.index];
-    console.log('Achievements:', this.achievements);
     });
-    //this.achievements = this.achievementService.achievements;
     this.arr_year=this.generateNumberOptions(2020,2024,1);
     this.arr_year.unshift("All");
     }

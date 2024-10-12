@@ -30,7 +30,12 @@ const routes: Routes = [
   {
     path: 'schedule-details/:index',
     loadChildren: () => import('./schedule-details/schedule-details.module').then( m => m.ScheduleDetailsPageModule)
+  },
+  {
+    path: 'teams/:index',
+    loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule)
   }
+
 
 
 ];
