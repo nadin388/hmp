@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title>Schedule Detail</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/schedules"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-img [src]="schedule?.url" alt="{{schedule?.nameEvent}}"></ion-img>
+    <ion-card-header>
+      <ion-card-title>{{schedule?.nameEvent}} - {{schedule?.nameGame}}</ion-card-title>
+      <ion-card-subtitle>{{schedule?.location}} ({{schedule?.time}})</ion-card-subtitle>
+      <ion-card-subtitle>{{schedule?.nameTeam}}</ion-card-subtitle>
+      <ion-card-content>
+        {{schedule?.description}}
+      </ion-card-content>
+    </ion-card-header>
+    
+    <ion-button id="notify" shape="round" fill="outline">
+      <ion-icon name="notifications-outline"></ion-icon>
+      Notify Me
+    </ion-button >
+    <ion-alert trigger="notify" header="Notify Me" message="Notification Created!"></ion-alert>
+  </ion-card>
+</ion-content>

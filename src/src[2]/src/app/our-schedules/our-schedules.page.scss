@@ -1,0 +1,29 @@
+.schedule-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .schedule-date {
+    text-align: left; 
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .day {
+    font-size: 2em;
+  }
+  
+  .month {
+    font-size: 1em;
+  }
+  
+  .schedule-event {
+    text-align: center;
+    flex-grow: 1; 
+    font-size: 1.2em;
+  }
+  
+  .schedule-game-team {
+    text-align: right;
+  }
+  

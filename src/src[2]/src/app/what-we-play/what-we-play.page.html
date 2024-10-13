@@ -1,0 +1,37 @@
+ <ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title>What We Play</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons> 
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="person"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">What We Play</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="card-container">
+    <ion-card *ngFor="let game of arrayOfGames; let i = index" class="small-card">
+        <img [alt]="game.name" [src]="game.image" class="card-image" />
+        <ion-card-header>
+          <ion-card-title>{{ game.name }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          {{ game.description }}
+        </ion-card-content>
+        <div class="button-group">
+          <ion-button fill="outline" shape="round" color="medium" routerLink="/achievement/{{i}}">Achievements</ion-button>
+          <ion-button fill="outline" shape="round" color="medium" routerLink="/teams/{{i}}">Team</ion-button>
+        </div>
+    </ion-card> 
+  </div>
+</ion-content>
