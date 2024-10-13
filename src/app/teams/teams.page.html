@@ -14,31 +14,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">teams</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Teams</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-list class="teams_css" *ngIf="teams">
-    <ion-item>
-      <ion-label>
-        <ion-img [src] = "teams.url"></ion-img>
-      </ion-label>
-    </ion-item>
+<ion-content>
+  <ion-card>
+    <img [src]="gameBannerUrl" alt="Game Banner">
+  </ion-card>
 
-    <ion-item *ngFor="let team of teams.team_name">
-      <ion-button fill="clear" 
-      style="width: 100%;
-      font-weight: bold;
-      font-size: 25px;
-      color: black">
-        {{ team }}
-      </ion-button>
-    </ion-item>
+  <!-- Daftar Tim -->
+  <ion-list *ngFor="let team of teams; let i = index">
+    <ion-button routerLink ="/members/{{i}}" >
+      {{ team.team_name }}
+    </ion-button>
   </ion-list>
-
-
-
 </ion-content>

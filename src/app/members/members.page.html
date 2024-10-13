@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>members</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Members of {{ team.team_name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">members</ion-title>
+      <ion-title size="large">Members</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-list *ngIf="members">
+    <ion-item *ngFor="let member of members">
+      {{ member }}
+    </ion-item>
+  </ion-list>
 </ion-content>
