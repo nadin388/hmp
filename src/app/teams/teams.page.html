@@ -20,7 +20,7 @@
   </ion-card>
 
   <ion-list *ngFor="let team of selectedGame.teams; let i = index" >
-    <ion-button [routerLink]="['/members', gameIndex, i]">
+    <ion-button [routerLink]="['/members', gameIndex, i]" fill="clear">
       {{ team.team_name}}
     </ion-button>
   </ion-list>

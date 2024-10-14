@@ -45,7 +45,7 @@ export class TeamsserviceService {
               photo_url: 'https://esports.id/img/content/39820201231061243.jpg'
             },
             {
-              member_name: 'NadineChou',
+              member_name: 'NadineChow',
               role: 'Duelist',
               photo_url: 'https://api.duniagames.co.id/api/content/upload/file/11837806181598859227.jpg'
             }
