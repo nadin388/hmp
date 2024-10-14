@@ -9,15 +9,15 @@ export class HomePage {
   
   packages = [
     {
-      name: 'game',
+      name: 'what we play',
       bg: '/assets/game.png'
     },
     {
-      name: 'member',
+      name: 'who we are',
       bg: '/assets/member.png'
     }, 
     {
-      name: 'schedules',
+      name: 'our schedules',
       bg: '/assets/schedules.png'
     }
   ]

@@ -12,15 +12,15 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'game',
+    path: 'what we play',
     loadChildren: () => import('./what-we-play/what-we-play.module').then( m => m.WhatWePlayPageModule)
   },
   {
-    path: 'member',
+    path: 'who we are',
     loadChildren: () => import('./who-we-are/who-we-are.module').then( m => m.WhoWeArePageModule)
   },
   {
-    path: 'schedules',
+    path: 'our schedules',
     loadChildren: () => import('./our-schedules/our-schedules.module').then( m => m.OurSchedulesPageModule)
   },
   {
