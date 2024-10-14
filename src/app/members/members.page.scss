@@ -1,0 +1,18 @@
+ion-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  
+    ion-img {
+        width: 100%;         
+        max-width: 1000px;  
+        height: auto;       
+        border-radius: 10px; 
+        object-fit: cover; 
+    }
+  }
+  ion-avatar {
+    width: 200px;
+    height: 200px;
+  }

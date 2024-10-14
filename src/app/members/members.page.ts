@@ -9,8 +9,10 @@ import { TeamsserviceService } from '../teamsservice.service';
 })
 export class MembersPage implements OnInit {
 
-  team: any;
-  members: string[] = [];  // Inisialisasi dengan array kosong
+  gameIndex = 0;
+  teamIndex = 0;
+  selectedTeam:any={};
+  selectedGame:any={};
 
   constructor(
     private route: ActivatedRoute,
@@ -19,15 +21,12 @@ export class MembersPage implements OnInit {
 
   ngOnInit() {
     // Ambil index tim dari parameter URL, pastikan teamIndex bukan null
-    const teamIndex = this.route.snapshot.paramMap.get('teamIndex');
-    
-    if (teamIndex !== null) {
-      const selectedIndex = parseInt(teamIndex, 10);
-
-      // Ambil tim dan anggota dari service berdasarkan index
-      // this.team = this.teamsservice.teams[selectedIndex];
-      this.members = this.team.member_name;
-    }
+    this.route.params.subscribe(params => {
+      this.gameIndex = +params['gameIndex'];  
+      this.teamIndex = +params['teamIndex']; 
+      this.selectedGame = this.teamsservice.games[this.gameIndex];
+      this.selectedTeam = this.teamsservice.games[this.gameIndex].teams[this.teamIndex];
+    });
   }
 
 }

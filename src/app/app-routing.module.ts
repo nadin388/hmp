@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule)
   },
   {
-    path: 'members/:teamIndex',
+    path: 'members/:gameIndex/:teamIndex',
     loadChildren: () => import('./members/members.module').then( m => m.MembersPageModule)
   }
 

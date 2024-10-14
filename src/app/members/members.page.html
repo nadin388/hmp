@@ -1,19 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
-    <ion-title>Members of {{ team.team_name }}</ion-title>
+    <ion-title>Team Members</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/teams"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Members</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-list *ngIf="members">
-    <ion-item *ngFor="let member of members">
-      {{ member }}
+  <ion-img [src]="selectedGame?.url"></ion-img>
+  <ion-list>
+    <ion-item *ngFor="let member of selectedTeam.members; let i = index" lines="full">
+      <ion-avatar slot="start">
+        <ion-img [src]="member?.photo_url" alt="{{ member.member_name }}"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ member.member_name }}</h2>
+        <p>{{ member.role }}</p>
+      </ion-label>
     </ion-item>
   </ion-list>
 </ion-content>

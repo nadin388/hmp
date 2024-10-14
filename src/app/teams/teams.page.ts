@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TeamsserviceService, Teams } from '../teamsservice.service';
+import { TeamsserviceService } from '../teamsservice.service';
 
 @Component({
   selector: 'app-teams',
@@ -9,23 +9,18 @@ import { TeamsserviceService, Teams } from '../teamsservice.service';
 })
 export class TeamsPage implements OnInit {
 
-  gameBannerUrl!: string;
-  teams!: Teams[];
-  selectedTeam!: Teams | null;
+  gameIndex=0;
+  selectedGame:any={};
 
-  constructor(private teamsService: TeamsserviceService) {}
+  constructor(private route: ActivatedRoute,private teamsService: TeamsserviceService) {}
 
   ngOnInit() {
-    // Ambil data dari service, contoh untuk Valorant
-    const game = this.teamsService.const_games.find(g => g.game_name === 'Valorant');
-    
-    if (game) {
-      this.gameBannerUrl = game.teams[0].url;  // URL banner dari tim pertama
-      this.teams = game.teams;
-    }
-  }
+    // Mengambil parameter index dari route
+    this.route.params.subscribe(params => {
+      this.gameIndex = +params['index'];  
 
-  selectTeam(team: Teams) {
-    this.selectedTeam = team;
+     
+      this.selectedGame = this.teamsService.games[this.gameIndex];
+    });
   }
 }
