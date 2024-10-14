@@ -14,7 +14,7 @@ export class AchievementPage implements OnInit {
   achievements:any
   year:string ="All";
   arr_year: string[] = []
-  ach_dipilih: any[] = [];
+  ach_tampil: string[] = []
 
   constructor(
     private route: ActivatedRoute,
@@ -39,10 +39,18 @@ export class AchievementPage implements OnInit {
     }
 
     getAchievementsByYear(item: any): string[] {
-      if (this.year === "All") {
-        return item.achievement; 
-      } else {
-        return item.achievement.filter((ach:string, index:number) => item.year[index] === this.year);
+
+      this.ach_tampil = [];
+    
+      if (this.year == "All") {
+        return item.achievement;
       }
+    
+      for (let i = 0; i < item.year.length; i++) {
+        if (item.year[i] == this.year) {
+          this.ach_tampil.push(item.achievement[i]);
+        }
+      }
+      return this.ach_tampil;
     }
 }
