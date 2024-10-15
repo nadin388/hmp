@@ -19,8 +19,4 @@ export class OurSchedulesPage implements OnInit {
   ngOnInit() {
     this.ourSchedules = this.scheduleservice.ourSchedules
   }
-
-  getScheduleByIndex(index: number) {
-    return this.ourSchedules[index];
-  }
 }
