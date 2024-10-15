@@ -19,15 +19,20 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list *ngFor="let schedule of ourSchedules; let i = index">
-    <ion-item routerLink="/schedule-details/{{i}}">
+  <!-- ngambil data dari list ourschedule by index -->
+  <ion-list *ngFor="let schedule of ourSchedules; let i = index"> 
+    <!-- --buat pindah form ke schedule-details sesuai inde -->
+    <ion-item routerLink="/schedule-details/{{i}}"> 
       <ion-label>
         <div class="schedule-container">
           <div class="schedule-date">
-            <span class="day">{{ schedule.date | date: 'dd' }}</span><br>
-            <span class="month">{{ schedule.date | date: 'MMM' | uppercase }}</span>
+            <!-- --ngambil data list date dari schedule service -->
+            <span class="day">{{ schedule.date | date: 'dd' }}</span><br> 
+            <!-- --uppercase buat besarin font -->
+            <span class="month">{{ schedule.date | date: 'MMM' | uppercase }}</span> 
           </div>
-          <div class="schedule-event">
+          <!-- --class itu untuk pakek scss nya -->
+          <div class="schedule-event"> 
             <span>{{ schedule.nameEvent }}</span>
           </div>
           <div class="schedule-game-team">

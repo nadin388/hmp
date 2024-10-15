@@ -33,11 +33,11 @@ const routes: Routes = [
   },
   {
     path: 'teams/:index',
-    loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule)
+    loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule) // ini mengirim parameter berupa index ke teams
   },
   {
     path: 'members/:gameIndex/:teamIndex',
-    loadChildren: () => import('./members/members.module').then( m => m.MembersPageModule)
+    loadChildren: () => import('./members/members.module').then( m => m.MembersPageModule) // ini mengirim parameter berupa index ke members
   }
 
 
