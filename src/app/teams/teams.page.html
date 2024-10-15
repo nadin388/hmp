@@ -8,7 +8,7 @@
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-button>
-        <ion-icon slot="icon-only" name="person"></ion-icon>
+        <ion-icon slot="icon-only" name="person"></ion-icon> //tanya
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -18,8 +18,9 @@
   <ion-card>
     <ion-img [src]="selectedGame?.url"></ion-img>
   </ion-card>
-
-  <ion-list *ngFor="let team of selectedGame.teams; let i = index" >
+  <!-- //ngambil data dari selected game list teams by index -->
+  <ion-list *ngFor="let team of selectedGame.teams; let i = index" > 
+    <!-- //pindah form ke members -->
     <ion-button [routerLink]="['/members', gameIndex, i]" fill="clear">
       {{ team.team_name}}
     </ion-button>

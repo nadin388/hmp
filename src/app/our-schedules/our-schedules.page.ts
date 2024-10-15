@@ -17,6 +17,6 @@ export class OurSchedulesPage implements OnInit {
   constructor(private scheduleservice: ScheduleserviceService, public nav: NavController) { }
 
   ngOnInit() {
-    this.ourSchedules = this.scheduleservice.ourSchedules
+    this.ourSchedules = this.scheduleservice.ourSchedules //buat ngehubungin ke schedule service
   }
 }

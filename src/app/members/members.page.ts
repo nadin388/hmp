@@ -10,7 +10,7 @@ import { TeamsserviceService } from '../teamsservice.service';
 export class MembersPage implements OnInit {
 
   gameIndex = 0;
-  teamIndex = 0;
+  teamIndex = 0; //dinisialisasi
   selectedTeam:any={};
   selectedGame:any={};
 
