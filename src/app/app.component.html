@@ -1,5 +1,6 @@
 <ion-app>
-  <ion-router-outlet id="main-content">
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-app>
 
 <ion-tabs>
   <ion-tab-bar slot="bottom">
@@ -73,7 +74,7 @@
   </ion-content>
 </ion-menu>
 
-<ion-content class="ion-padding">
+<ion-content *ngIf="!fname" class="ion-padding">
   <!-- <img src="https://ubaya.me/hybrid/pasta.jpg" /> -->
   <ion-card>
      <ion-item>
@@ -85,6 +86,4 @@
      <ion-button expand="block" (click)="login()">Login</ion-button>
   </ion-card>
 </ion-content>
-</ion-router-outlet>
-</ion-app>
 

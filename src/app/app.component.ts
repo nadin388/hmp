@@ -30,14 +30,14 @@ export class AppComponent {
    this.userservice.login(this.username,this.password).subscribe(
      (response: any) => {
         if(response.result==='success'){
-           alert("success")
-           this.fname=response.fname;
-           localStorage.setItem("app_username",this.username)
-           localStorage.setItem("app_fname",response.fname)
+          alert("success")
+          this.fname=response.fname;
+          localStorage.setItem("app_fname",this.fname)
+          localStorage.setItem("app_username",this.username)
          }
          else
          {
-           alert(response.message)
+            alert(response.message)
          }
   });
 }
