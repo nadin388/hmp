@@ -9,12 +9,12 @@
       <ion-content class="ion-padding">
         <ion-list>
           <ion-menu-toggle>
-            <ion-item routerLink="/what we play">
-              <ion-icon name="game-controller-outline" slot="start"></ion-icon>
-              <ion-label>What We Play</ion-label>
+            <ion-item routerLink="/apply-team">
+              <ion-icon name="people-circle-outline"slot="start"></ion-icon>
+              <ion-label>Apply Team</ion-label>
             </ion-item>
           </ion-menu-toggle>
-          <ion-menu-toggle>
+          <!-- <ion-menu-toggle>
             <ion-item routerLink="/who we are">
               <ion-icon name="person-add-outline" slot="start"></ion-icon>
               <ion-label>Who We Are</ion-label>
@@ -25,8 +25,8 @@
               <ion-icon name="calendar-outline" slot="start"></ion-icon>
               <ion-label>Our Schedule</ion-label>
             </ion-item>
-          </ion-menu-toggle>
-
+          </ion-menu-toggle> -->
+          
             <ion-item (click)="toggleDropdown()">
               <ion-label>Profil Kelompok</ion-label>
               <ion-icon slot="start" name="person"></ion-icon>
@@ -43,6 +43,13 @@
                 <ion-label>Nadine Chow A. (160422027)</ion-label>
               </ion-item>
             </ion-list>
+
+            <ion-menu-toggle>
+              <ion-item routerLink="/sign-out">
+                <ion-icon name="exit-outline"slot="start"></ion-icon>
+                <ion-label>Sign Out</ion-label>
+              </ion-item>
+            </ion-menu-toggle>
             
         </ion-list>
       </ion-content>
