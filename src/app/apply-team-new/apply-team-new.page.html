@@ -1,13 +1,41 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>apply-team-new</ion-title>
+    <ion-title>Apply Team</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">apply-team-new</ion-title>
+      <ion-title size="large">Apply Team</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-list>
+    <ion-item>
+      <ion-label>Choose Game</ion-label>
+      <ion-select aria-label="game" placeholder="Choose Game">
+        <ion-select-option value="mobile legends">Mobile Legends</ion-select-option>
+        <ion-select-option value="pubg">PUBG</ion-select-option>
+        <ion-select-option value="valorant">Valorant</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Choose Team</ion-label>
+      <ion-select aria-label="team" placeholder="Choose Team">
+        <ion-select-option value="apples">Apples</ion-select-option>
+        <ion-select-option value="oranges">Oranges</ion-select-option>
+        <ion-select-option value="bananas">Bananas</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-textarea
+      placeholder="Tell us the reason why you are good enough to join this team"
+    ></ion-textarea>
+  </ion-item>
+  <div class="ion-margin-top ion-text-center">
+    <ion-button expand="block" shape="round" color="primary">
+      Apply Team
+    </ion-button>
+  </div>
 </ion-content>
