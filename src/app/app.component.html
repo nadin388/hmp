@@ -1,57 +1,89 @@
 <ion-app>
-  <ion-router-outlet id="main-content"></ion-router-outlet>
-    <ion-menu auto-hide="true" contentId="main-content">
-      <ion-header>
-        <ion-toolbar color="dark">
-          <ion-title>List Feature</ion-title>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <ion-list>
-          <ion-menu-toggle>
-            <ion-item routerLink="/apply-team">
-              <ion-icon name="people-circle-outline"slot="start"></ion-icon>
-              <ion-label>Apply Team</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <!-- <ion-menu-toggle>
-            <ion-item routerLink="/who we are">
-              <ion-icon name="person-add-outline" slot="start"></ion-icon>
-              <ion-label>Who We Are</ion-label>
-            </ion-item>
-          </ion-menu-toggle>
-          <ion-menu-toggle>
-            <ion-item routerLink="/our schedules">
-              <ion-icon name="calendar-outline" slot="start"></ion-icon>
-              <ion-label>Our Schedule</ion-label>
-            </ion-item>
-          </ion-menu-toggle> -->
-          
-            <ion-item (click)="toggleDropdown()">
-              <ion-label>Profil Kelompok</ion-label>
-              <ion-icon slot="start" name="person"></ion-icon>
-              <ion-icon [name]="dropdownOpen ? 'chevron-up' : 'chevron-down'"></ion-icon> 
-            </ion-item>
-            <ion-list *ngIf="dropdownOpen" style ="margin-left: 20px;">
-              <ion-item >
-                <ion-label>Sarah Laura S. (160422015)</ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Cennia Lieta H. (160422037)</ion-label>
-              </ion-item>
-              <ion-item>
-                <ion-label>Nadine Chow A. (160422027)</ion-label>
-              </ion-item>
-            </ion-list>
+  <ion-router-outlet id="main-content">
 
-            <ion-menu-toggle>
-              <ion-item routerLink="/sign-out">
-                <ion-icon name="exit-outline"slot="start"></ion-icon>
-                <ion-label>Sign Out</ion-label>
-              </ion-item>
-            </ion-menu-toggle>
-            
-        </ion-list>
-      </ion-content>
-    </ion-menu>
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="what we play">
+      <ion-icon name="game-controller-outline"></ion-icon>
+      <ion-label>What We Play</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="our schedules">
+      <ion-icon name="calendar-outline"></ion-icon>
+      <ion-label>Our Schedule</ion-label>
+    </ion-tab-button>
+    <ion-tab-button tab="who we are">
+      <ion-icon name="people-outline"></ion-icon>
+      <ion-label>Who We Are</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+
+<ion-menu auto-hide="true" contentId="main-content">
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title>List Feature</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-menu-toggle>
+        <ion-item routerLink="/apply-team">
+          <ion-icon name="people-circle-outline"slot="start"></ion-icon>
+          <ion-label>Apply Team</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <!-- <ion-menu-toggle>
+        <ion-item routerLink="/who we are">
+          <ion-icon name="person-add-outline" slot="start"></ion-icon>
+          <ion-label>Who We Are</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle>
+        <ion-item routerLink="/our schedules">
+          <ion-icon name="calendar-outline" slot="start"></ion-icon>
+          <ion-label>Our Schedule</ion-label>
+        </ion-item>
+      </ion-menu-toggle> -->
+
+      <ion-item (click)="toggleDropdown()">
+        <ion-label>Profil Kelompok</ion-label>
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-icon [name]="dropdownOpen ? 'chevron-up' : 'chevron-down'"></ion-icon> 
+      </ion-item>
+      <ion-list *ngIf="dropdownOpen" style ="margin-left: 20px;">
+        <ion-item >
+          <ion-label>Sarah Laura S. (160422015)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Cennia Lieta H. (160422037)</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Nadine Chow A. (160422027)</ion-label>
+        </ion-item>
+      </ion-list>
+
+      <ion-menu-toggle>
+        <ion-item routerLink="/sign-out">
+          <ion-icon name="exit-outline"slot="start"></ion-icon>
+          <ion-label>Sign Out</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+        
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-content class="ion-padding">
+  <!-- <img src="https://ubaya.me/hybrid/pasta.jpg" /> -->
+  <ion-card>
+     <ion-item>
+        <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating" />
+     </ion-item>
+     <ion-item>
+        <ion-input [(ngModel)]="password" type="password" label="Password" labelPlacement="floating" />
+     </ion-item>
+     <ion-button expand="block" (click)="login()">Login</ion-button>
+  </ion-card>
+</ion-content>
+</ion-router-outlet>
 </ion-app>

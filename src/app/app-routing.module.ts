@@ -38,7 +38,8 @@ const routes: Routes = [
   {
     path: 'members/:gameIndex/:teamIndex',
     loadChildren: () => import('./members/members.module').then( m => m.MembersPageModule) // ini mengirim parameter berupa index ke members
-  },  {
+  },
+  {
     path: 'apply-team',
     loadChildren: () => import('./apply-team/apply-team.module').then( m => m.ApplyTeamPageModule)
   },
@@ -46,8 +47,6 @@ const routes: Routes = [
     path: 'apply-team-new',
     loadChildren: () => import('./apply-team-new/apply-team-new.module').then( m => m.ApplyTeamNewPageModule)
   }
-
-
 
 
 
