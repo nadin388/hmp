@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProposalserviceService } from '../proposalservice.service';
 
 @Component({
   selector: 'app-apply-team',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ApplyTeamPage implements OnInit {
 
-  constructor() { }
+  proposals:any=[];
+
+  constructor(private proposal:ProposalserviceService) { }
 
   ngOnInit() {
+    this.proposals = this.proposal
   }
-
+  
 }
