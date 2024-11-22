@@ -15,6 +15,7 @@ export class UserserviceService {
     body.set('username', p_username);
     body.set('password', p_password);
     const urlEncodedData = body.toString();
+    //console.log('Data yang dikirim ke backend:', urlEncodedData);
     return this.http.post("https://ubaya.xyz/hybrid/160422027/login2.php", urlEncodedData, { headers });
   }
 }

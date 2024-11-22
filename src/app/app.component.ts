@@ -38,4 +38,12 @@ export class AppComponent {
       });
   }
 
+  logout(){
+    this.username=""
+    this.fname=""
+    localStorage.removeItem("app_username")
+    localStorage.removeItem("app_fname")
+  
+  }
+
 }
