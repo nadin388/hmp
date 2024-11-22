@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { defineCustomElements } from '@ionic/pwa-elements/loader'
+import { Component } from '@angular/core'; 
 import { UserserviceService } from './userservice.service';
 
 @Component({
@@ -16,7 +15,6 @@ export class AppComponent {
     this.fname = localStorage.getItem("app_fname") || ""
     this.username = localStorage.getItem("app_username") || ""
 
-    defineCustomElements(window)
   }
 
   dropdownOpen: boolean = false;
