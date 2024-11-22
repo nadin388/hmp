@@ -43,6 +43,7 @@ export class AppComponent {
     this.fname=""
     localStorage.removeItem("app_username")
     localStorage.removeItem("app_fname")
+    localStorage.removeItem("app_password")
   
   }
 
