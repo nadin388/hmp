@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProposalserviceService } from '../proposalservice.service';
 
+
 @Component({
   selector: 'app-apply-team',
   templateUrl: './apply-team.page.html',
@@ -8,12 +9,23 @@ import { ProposalserviceService } from '../proposalservice.service';
 })
 export class ApplyTeamPage implements OnInit {
 
+  
   proposals:any=[];
+  idmember: string = ""
+  allProposals: any = []
 
-  constructor(private proposal:ProposalserviceService) { }
+  constructor(private proposalservice:ProposalserviceService) { }
 
   ngOnInit() {
-    this.proposals = this.proposal
+    this.idmember = localStorage.getItem("app_idmember") || "ID tidak ditemukan"
+    console.log(this.idmember);
+    this.proposalservice.proposalList(this.idmember).subscribe(
+      (data) => {
+        this.proposals = data;
+        this.allProposals = data; 
+      }
+    );
   }
+
   
 }

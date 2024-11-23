@@ -30,7 +30,7 @@ export class AppComponent {
           this.fname = response.fname;
           localStorage.setItem("app_fname", this.fname)
           localStorage.setItem("app_username", this.username)
-          localStorage.setItem("app_idusers", response.idusers);
+          localStorage.setItem("app_idmember", response.idmember.toString());
         }
         else {
           alert(response.message)
@@ -44,7 +44,7 @@ export class AppComponent {
     localStorage.removeItem("app_username")
     localStorage.removeItem("app_fname")
     localStorage.removeItem("app_password")
-    localStorage.removeItem("app_idusers")
+    localStorage.removeItem("app_idmember")
   }
 
 }

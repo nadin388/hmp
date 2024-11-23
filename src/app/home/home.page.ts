@@ -8,7 +8,7 @@ import { UserserviceService } from '../userservice.service';
 })
 export class HomePage implements OnInit{
   
-  //idusers: string = ""
+  idmember: string = ""
 
   packages = [
     {
@@ -28,7 +28,6 @@ export class HomePage implements OnInit{
   constructor() {}
 
   ngOnInit() {
-    // this.idusers = localStorage.getItem("app_idusers") || "ID tidak ditemukan"
-    // console.log(this.idusers);
+    
   }
 }

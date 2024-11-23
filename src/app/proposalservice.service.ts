@@ -1,52 +1,19 @@
 import { Injectable } from '@angular/core';
+import { HttpClient , HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProposalserviceService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  proposals = [
-    {
-      idproposal: 1,
-      teamName: 'IONIQ',
-      gameName: 'Mobile Legends',
-      description: 'Mau join donk',
-      idMember: 1,
-      status: 'WAITING'
-    },
-    {
-      idproposal: 2,
-      teamName: 'E-Gladiators',
-      gameName: 'League of Legends',
-      description: 'Tim kami sangat solid dan siap bersaing!',
-      idMember: 2,
-      status: 'APPROVED'
-    },
-    {
-      idproposal: 3,
-      teamName: 'StormBreakers',
-      gameName: 'Valorant',
-      description: 'Kami memiliki strategi kuat untuk menang.',
-      idMember: 3,
-      status: 'REJECTED'
-    },
-    {
-      idproposal: 4,
-      teamName: 'DragonSlayers',
-      gameName: 'Dota 2',
-      description: 'Tim kami memiliki pengalaman di turnamen besar.',
-      idMember: 4,
-      status: 'WAITING'
-    },
-    {
-      idproposal: 5,
-      teamName: 'PhoenixFlames',
-      gameName: 'PUBG',
-      description: 'Kami adalah tim yang penuh semangat dan kerja keras.',
-      idMember: 5,
-      status: 'APPROVED'
-    }
-  ];  
+  proposals = [];
+  link = "https://ubaya.xyz/hybrid/160422027/";
+
+  proposalList(idmember: string): Observable<any> {
+    return this.http.get(this.link + "get_proposal.php?idmember=" + idmember)
+  }
+  
 }
