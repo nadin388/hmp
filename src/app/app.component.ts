@@ -14,7 +14,6 @@ export class AppComponent {
   constructor(private userservice: UserserviceService) {
     this.fname = localStorage.getItem("app_fname") || ""
     this.username = localStorage.getItem("app_username") || ""
-
   }
 
   dropdownOpen: boolean = false;
@@ -31,6 +30,7 @@ export class AppComponent {
           this.fname = response.fname;
           localStorage.setItem("app_fname", this.fname)
           localStorage.setItem("app_username", this.username)
+          localStorage.setItem("app_idusers", response.idusers);
         }
         else {
           alert(response.message)
@@ -44,7 +44,7 @@ export class AppComponent {
     localStorage.removeItem("app_username")
     localStorage.removeItem("app_fname")
     localStorage.removeItem("app_password")
-  
+    localStorage.removeItem("app_idusers")
   }
 
 }
