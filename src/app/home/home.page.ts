@@ -12,15 +12,15 @@ export class HomePage implements OnInit{
 
   packages = [
     {
-      name: 'what we play',
+      name: 'what-we-play',
       bg: '/assets/game.png'
     },
     {
-      name: 'who we are',
+      name: 'who-we-are',
       bg: '/assets/member.png'
     }, 
     {
-      name: 'our schedules',
+      name: 'our-schedules',
       bg: '/assets/schedules.png'
     }
   ]

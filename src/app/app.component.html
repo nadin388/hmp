@@ -2,22 +2,6 @@
   <ion-router-outlet id="main-content"></ion-router-outlet>
 </ion-app>
 
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="what we play">
-      <ion-icon name="game-controller-outline"></ion-icon>
-      <ion-label>What We Play</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="our schedules">
-      <ion-icon name="calendar-outline"></ion-icon>
-      <ion-label>Our Schedule</ion-label>
-    </ion-tab-button>
-    <ion-tab-button tab="who we are">
-      <ion-icon name="people-outline"></ion-icon>
-      <ion-label>Who We Are</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
 
 <ion-menu auto-hide="true" contentId="main-content">
   <ion-header>
@@ -36,18 +20,6 @@
           <ion-label>Apply Team</ion-label>
         </ion-item>
       </ion-menu-toggle>
-      <!-- <ion-menu-toggle>
-        <ion-item routerLink="/who we are">
-          <ion-icon name="person-add-outline" slot="start"></ion-icon>
-          <ion-label>Who We Are</ion-label>
-        </ion-item>
-      </ion-menu-toggle>
-      <ion-menu-toggle>
-        <ion-item routerLink="/our schedules">
-          <ion-icon name="calendar-outline" slot="start"></ion-icon>
-          <ion-label>Our Schedule</ion-label>
-        </ion-item>
-      </ion-menu-toggle> -->
 
       <ion-item (click)="toggleDropdown()">
         <ion-label>Profil Kelompok</ion-label>
