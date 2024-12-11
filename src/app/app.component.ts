@@ -41,6 +41,7 @@ export class AppComponent {
   logout(){
     this.username=""
     this.fname=""
+    this.password=""
     localStorage.removeItem("app_username")
     localStorage.removeItem("app_fname")
     localStorage.removeItem("app_password")

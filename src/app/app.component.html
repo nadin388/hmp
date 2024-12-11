@@ -49,9 +49,9 @@
   </ion-content>
 </ion-menu>
 
-<ion-content *ngIf="!fname" class="ion-padding">
-  <!-- <img src="https://ubaya.me/hybrid/pasta.jpg" /> -->
-  <ion-card>
+<ion-content *ngIf="!fname" class="ion-padding login-content">
+  <img src="/assets/logo.png" />
+  <ion-card class="login-card">
     <ion-item>
       <ion-input [(ngModel)]="username" label="Username" labelPlacement="floating" />
     </ion-item>
@@ -60,4 +60,8 @@
     </ion-item>
     <ion-button expand="block" (click)="login()">Login</ion-button>
   </ion-card>
+  <div class="sign-up">
+    <p>Don't have an account?</p>
+    <ion-button size="small">Sign Up</ion-button>
+  </div>
 </ion-content>
