@@ -16,7 +16,7 @@ export class ScheduleDetailsPage implements OnInit {
   schedule: any;
 
   ngOnInit() {
-    this.ourSchedules = this.scheduleservice.ourSchedules;
+    this.ourSchedules = this.scheduleservice.getOurSchedule;
 
     // Mengambil parameter index dari route
     this.route.params.subscribe(params => {

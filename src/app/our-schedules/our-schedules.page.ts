@@ -10,13 +10,19 @@ import { ScheduleDetailsPage } from '../schedule-details/schedule-details.page';
 })
 export class OurSchedulesPage implements OnInit {
 
-  ourSchedules: any = []
-  index = 0;
-  schedule: any;
+  schedules: { data: any[] } = { data: [] };
+  // index = 0;
+    jenistampilan="accordion";
 
-  constructor(private scheduleservice: ScheduleserviceService, public nav: NavController) { }
+  constructor(private scheduleservice: ScheduleserviceService, 
+    // public nav: NavController
+  ) { }
 
   ngOnInit() {
-    this.ourSchedules = this.scheduleservice.ourSchedules //buat ngehubungin ke schedule service
+    this.scheduleservice.getOurSchedule().subscribe((data) => {
+      console.log("DATA: ", data);
+      this.schedules = data;
+      console.log("Schedules after assignment: ", this.schedules);
+    })
   }
 }
