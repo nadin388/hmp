@@ -11,8 +11,6 @@ import { ScheduleDetailsPage } from '../schedule-details/schedule-details.page';
 export class OurSchedulesPage implements OnInit {
 
   schedules: { data: any[] } = { data: [] };
-  // index = 0;
-    jenistampilan="accordion";
 
   constructor(private scheduleservice: ScheduleserviceService, 
     // public nav: NavController

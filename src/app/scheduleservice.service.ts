@@ -2,23 +2,26 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-export interface Schedules{
-  nama_event?:string;
-  nama_game?: string;
-  nama_team?: string;
+export interface Detail{
+  idevent?:number;
+  idteam?: number;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScheduleserviceService {
-schedules: Schedules[] =[]
 
   constructor(private http: HttpClient) { }
 
   getOurSchedule(): Observable<any> {
     return this.http.get("https://ubaya.xyz/hybrid/160422027/ourschedule.php");
   }
+
+  getScheduleDetail(idevent: number, idteam: number): Observable<any> {
+    return this.http.get("https://ubaya.xyz/hybrid/160422027/schedule_detail.php?idevent="+1+"&idteam="+3);
+  }
+
   // ourSchedules = [
   //   {
   //     url: "https://www.enduins.com/wp-content/uploads/2018/01/esport-news-2.jpg",

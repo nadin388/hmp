@@ -11,21 +11,27 @@ export class ScheduleDetailsPage implements OnInit {
 
   constructor(private scheduleservice: ScheduleserviceService, private route:ActivatedRoute) { }
 
-  ourSchedules:any=[];
-  index = 0;
-  schedule: any;
+  schedule: { 
+    data: any } = { data: null };
+  idevent: number = 0;
+  idteam: number = 0;
 
   ngOnInit() {
-    this.ourSchedules = this.scheduleservice.getOurSchedule;
 
     // Mengambil parameter index dari route
     this.route.params.subscribe(params => {
-      this.index = +params['index'];  
+      console.log('Received idevent:', params['idevent']);
+      console.log('Received idteam:', params['idteam']);
 
-      this.schedule = this.ourSchedules[this.index];
+      this.idevent = +params['idevent'];
+      this.idteam = +params['idteam'];
+
+        this.scheduleservice.getScheduleDetail(this.idevent, this.idteam).subscribe((data) => {
+          console.log("Schedule Details: ", data);
+          this.schedule = data;
+      });
     });
 
-    
   }
 
 }

@@ -13,14 +13,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-img [src]="schedule?.url" alt="{{schedule?.nameEvent}}"></ion-img>
+
+  <pre>{{schedule | json}}</pre>
+  <ion-card *ngIf="schedule?.data">
+    <ion-img [src]="schedule?.data.image_url"></ion-img>
     <ion-card-header>
-      <ion-card-title>{{schedule?.nameEvent}} - {{schedule?.nameGame}}</ion-card-title>
-      <ion-card-subtitle>{{schedule?.location}} ({{schedule?.time}})</ion-card-subtitle>
-      <ion-card-subtitle>{{schedule?.nameTeam}}</ion-card-subtitle>
+      <ion-card-title>{{schedule?.data.nama_event}} - {{schedule?.data.nama_game}}</ion-card-title>
+      <ion-card-subtitle>{{schedule?.data.location}} ({{schedule?.data.time}})</ion-card-subtitle>
+      <ion-card-subtitle>{{schedule?.data.nama_team}}</ion-card-subtitle>
       <ion-card-content>
-        {{schedule?.description}}
+        {{schedule?.data.description}}
       </ion-card-content>
     </ion-card-header>
     

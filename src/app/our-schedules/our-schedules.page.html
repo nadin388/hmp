@@ -20,7 +20,7 @@
   </ion-header>
 
 <ng-container *ngIf="schedules.data && schedules.data.length > 0">
-  <ion-card *ngFor="let schedule of schedules.data; let i = index" routerLink="/schedule-details/{{i}}">
+  <ion-card *ngFor="let schedule of schedules.data" [routerLink]="['/schedule-details', schedule.idevent, schedule.idteam]">
     <ion-card-content> 
       <div class="schedule-container">
         <div class="schedule-date">

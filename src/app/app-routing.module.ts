@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('./achievement/achievement.module').then( m => m.AchievementPageModule)
   }, 
   {
-    path: 'schedule-details/:index',
+    path: 'schedule-details/:idevent/:idteam',
     loadChildren: () => import('./schedule-details/schedule-details.module').then( m => m.ScheduleDetailsPageModule)
   },
   {
