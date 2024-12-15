@@ -21,6 +21,7 @@
     </ion-toolbar>
   </ion-header>
 
+  <!-- Section for Year Selection -->
   <ion-list class="achievement_css" *ngIf="arr_year.length > 0">
     <ion-item>
       <ion-label>
@@ -29,11 +30,28 @@
     </ion-item>
 
     <ion-item>
-      <ion-select [(ngModel)]="year" label="Year" label-placement="stacked" fill="outline">
+      <ion-select [(ngModel)]="year" label="Year" label-placement="stacked" fill="outline"
+        (ionChange)="loadAchievements()">
+        <ion-select-option value="All">All</ion-select-option> <!-- Option for All Years -->
         <ion-select-option *ngFor="let year of arr_year" [value]="year">
           {{ year }}
         </ion-select-option>
       </ion-select>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="ach_tampil.length > 0">
+    <ion-item *ngFor="let achievement of ach_tampil; let i = index">
+      <ion-label>
+        {{ i + 1 }}. {{ achievement.name }} - {{ achievement.team }} - {{ achievement.date }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- If no achievements available -->
+  <ion-list *ngIf="ach_tampil.length === 0">
+    <ion-item>
+      <ion-label>No achievements found.</ion-label>
     </ion-item>
   </ion-list>
 

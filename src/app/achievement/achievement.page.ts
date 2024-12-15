@@ -8,16 +8,13 @@ import { AchievementserviceService } from '../achievementservice.service';
   styleUrls: ['./achievement.page.scss'],
 })
 export class AchievementPage implements OnInit {
-
   achievements: { data: any } = { data: null };
   idgame: number = 0;
-
   index = 0;
   year: string = "All";
-  arr_year: string[] = []
-  ach_tampil: string[] = []
+  arr_year: string[] = [];
+  ach_tampil: { name: string, team: string, date: number }[] = []; // Mendeklarasikan tipe
 
-  // Menyimpan image_url untuk ditampilkan
   imageUrl: string = '';
 
   constructor(
@@ -27,21 +24,19 @@ export class AchievementPage implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.idgame = +params['idgame']; // Ambil idgame dari parameter route
+      this.idgame = +params['idgame'];
       console.log('Received idgame:', this.idgame);
-      this.getAchievementYears(); // Fetch tahun berdasarkan idgame
-      this.loadAchievements(); // Load achievements berdasarkan idgame
+      this.getAchievementYears();
+      this.loadAchievements();
     });
   }
 
   getAchievementYears() {
     this.achievementService.getAchievementYear(this.idgame).subscribe((response) => {
       if (response.result === 'OK') {
-        // Menyaring hanya tahun yang ada di response
         this.arr_year = response.data.map((item: any) => item.date.toString());
-        // Ambil image_url dari data pertama yang diterima
         if (response.data.length > 0) {
-          this.imageUrl = response.data[0].image_url; // Set image URL
+          this.imageUrl = response.data[0].image_url;
         }
         console.log('Years fetched:', this.arr_year);
       } else {
@@ -52,12 +47,15 @@ export class AchievementPage implements OnInit {
 
   loadAchievements() {
     this.achievementService.getAchievementPerTeam(this.idgame).subscribe((response) => {
+      console.log('API Response:', response); // Log data
       if (response.result === 'OK') {
-        // Jika respons berhasil, simpan data pencapaian ke dalam variabel `achievements`
-        this.achievements = response.data;
-        console.log("Achievements loaded:", this.achievements);
+        if (this.year !== 'All') {
+          this.ach_tampil = response.data.filter((achievement: any) => achievement.date === this.year);
+        } else {
+          this.ach_tampil = response.data;
+        }
+        console.log("Achievements loaded:", this.ach_tampil);
       } else {
-        // Jika respons gagal, tampilkan pesan error
         console.error("Failed to load achievements:", response.message);
       }
     });
