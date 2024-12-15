@@ -19,27 +19,31 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- ngambil data dari list ourschedule by index -->
-  <ion-list *ngFor="let schedule of ourSchedules; let i = index"> 
-    <!-- --buat pindah form ke schedule-details sesuai inde -->
-    <ion-item routerLink="/schedule-details/{{i}}"> 
-      <ion-label>
-        <div class="schedule-container">
-          <div class="schedule-date">
-            <!-- --ngambil data list date dari schedule service -->
-            <span class="day">{{ schedule.date | date: 'dd' }}</span><br> 
-            <!-- --uppercase buat besarin font -->
-            <span class="month">{{ schedule.date | date: 'MMM' | uppercase }}</span> 
-          </div>
-          <!-- --class itu untuk pakek scss nya -->
-          <div class="schedule-event"> 
-            <span>{{ schedule.nameEvent }}</span>
-          </div>
-          <div class="schedule-game-team">
-            <span>{{ schedule.nameGame }} - {{ schedule.nameTeam }}</span>
-          </div>
+<ng-container *ngIf="schedules.data && schedules.data.length > 0">
+  <ion-card *ngFor="let schedule of schedules.data" [routerLink]="['/schedule-details', schedule.idevent, schedule.idteam]">
+    <ion-card-content> 
+      <div class="schedule-container">
+        <div class="schedule-date">
+          <span>{{ schedule.date | date: 'dd' }}</span><br>
+          <span>{{ schedule.date | date: 'MMM' | uppercase }}</span>
         </div>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+
+        <div class="schedule-event">
+          <span>{{ schedule.nama_event }}</span>
+        </div>
+
+        <div class="schedule-game-team">
+          <p>{{ schedule.nama_game }} - {{ schedule.nama_team }}</p>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+
+<div *ngIf="!schedules || schedules.data.length === 0">
+  <p>No schedules available.</p>
+</div>
+
 </ion-content>
+
+
