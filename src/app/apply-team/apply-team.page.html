@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="dark">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-back-button defaultHref="/what-we-play"></ion-back-button>
     </ion-buttons> 
     <ion-title>Apply Team</ion-title>
   </ion-toolbar>
@@ -20,4 +20,9 @@
       <ion-label class="game-status" slot="end">{{proposal.status}}</ion-label>
     </ion-item>
   </ion-list>
+  <ion-content>
+    <ion-button size="large" class="bottom-right-button" [routerLink]="['/apply-team-new']">
+      +
+    </ion-button>
+  </ion-content>
 </ion-content>

@@ -5,6 +5,10 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },  
+  {
+    path: 'what-we-play',
+    loadChildren: () => import('./what-we-play/what-we-play.module').then( m => m.WhatWePlayPageModule)
   }, 
   {
     path: 'achievement/:index',

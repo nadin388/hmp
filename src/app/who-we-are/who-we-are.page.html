@@ -19,14 +19,14 @@
     </ion-toolbar>
   </ion-header>
   <div class="group">
-    <img [src]="group.image" alt="Image" />
-    <h1><b>{{ group.name }}</b></h1>
-    <p>{{ group.description }}</p>
+    <img [src]="club.image" alt="Image" /> 
+    <h1><b>{{ club.name }}</b></h1>
+    <p>{{ club.description }}</p>
 
     <div class="like-section">
-      <ion-button fill="outline" shape="round" (click)="tambahLikes()">
+      <ion-button fill="outline" shape="round">
         <ion-icon name="heart"></ion-icon>
-        {{ likes }}
+        {{ club.likes }}
       </ion-button>
     </div>
   </div>

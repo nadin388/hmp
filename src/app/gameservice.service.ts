@@ -12,4 +12,8 @@ export class GameserviceService {
   getGames(): Observable<any> {
     return this.http.get("https://ubaya.xyz/hybrid/160422027/game.php");
   }
+
+  getWhoWeAre(): Observable<any>{
+    return this.http.get("https://ubaya.xyz/hybrid/160422027/whoweare.php");
+  }
 }

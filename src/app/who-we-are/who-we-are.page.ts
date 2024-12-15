@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GameserviceService } from '../gameservice.service';
 
 @Component({
   selector: 'app-who-we-are',
@@ -7,20 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhoWeArePage implements OnInit {
 
-  constructor() { }
+  constructor(private gameService: GameserviceService) { }
+
+  club: any;
 
   ngOnInit() {
-  }
-
-  group = {
-    name : 'RRQ',
-    description : 'RRQ (Rex Regum Qeon) adalah salah satu organisasi eSports terbesar dan paling terkenal di Indonesia. Mereka memiliki tim yang berkompetisi di berbagai cabang game eSports, baik di tingkat nasional maupun internasional. RRQ dikenal luas karena prestasinya di berbagai turnamen dan memiliki basis penggemar yang besar.',
-    image : 'https://esports.id/img/article/180220230616065757.jpeg' 
-  };
-
-  likes: number = 0; 
-
-  tambahLikes() {
-    this.likes++;
-  }
+    this.gameService.getWhoWeAre().subscribe((data) => {
+      console.log("DATA: ", data[0]);
+      this.club = data[0];
+    })
+  } 
 }
