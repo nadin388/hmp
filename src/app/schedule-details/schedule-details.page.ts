@@ -11,8 +11,7 @@ export class ScheduleDetailsPage implements OnInit {
 
   constructor(private scheduleservice: ScheduleserviceService, private route:ActivatedRoute) { }
 
-  schedule: { 
-    data: any } = { data: null };
+  schedule: { data: any } = { data: null };
   idevent: number = 0;
   idteam: number = 0;
 

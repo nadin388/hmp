@@ -19,7 +19,7 @@ export class ScheduleserviceService {
   }
 
   getScheduleDetail(idevent: number, idteam: number): Observable<any> {
-    return this.http.get("https://ubaya.xyz/hybrid/160422027/schedule_detail.php?idevent="+1+"&idteam="+3);
+    return this.http.get("https://ubaya.xyz/hybrid/160422027/schedule_detail.php?idevent="+idevent+"&idteam="+idteam);
   }
 
   // ourSchedules = [

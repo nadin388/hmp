@@ -1,6 +1,6 @@
 ion-card {
     margin: 30px;
-    width: 100%; 
+    width: 80%; 
     max-width: 1700px; 
     height: fit-content;
     margin-left: auto;
@@ -8,19 +8,19 @@ ion-card {
 }
 
 ion-card-title {
-    font-size: 3rem; 
+    font-size: 50px; 
     font-weight: bold;
     color: #333; 
     margin-bottom: 10px;
 }
 
 ion-card-subtitle {
-    font-size: 2rem; 
+    font-size: 25px; 
     color: #555;
     margin-bottom: 10px;
 }
 ion-card-content{
-    font-size: 1.5rem; 
+    font-size: 20px; 
 }
 
 ion-card-header {
