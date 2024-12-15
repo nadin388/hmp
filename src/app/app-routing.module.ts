@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('./what-we-play/what-we-play.module').then( m => m.WhatWePlayPageModule)
   }, 
   {
-    path: 'achievement/:index',
+    path: 'achievement/:idgame',
     loadChildren: () => import('./achievement/achievement.module').then( m => m.AchievementPageModule)
   }, 
   {

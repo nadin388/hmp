@@ -21,34 +21,20 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-list class="achievement_css"*ngIf="achievements">
+  <ion-list class="achievement_css" *ngIf="arr_year.length > 0">
     <ion-item>
       <ion-label>
-        <ion-img [src] = "achievements.url"></ion-img>
+        <ion-img [src]="imageUrl"></ion-img>
       </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-select [(ngModel)]="year"
-        label="Year"
-        label-placement="stacked"
-        fill="outline">
-        <ion-select-option 
-          *ngFor="let year of arr_year"
-            [value]="year">
-            {{year}}
-        </ion-select-option>
-      </ion-select>
     </ion-item>
 
     <ion-item>
-      <ion-label>
-        <h2 style="font-weight:bold ;">{{ achievements.name }}</h2>
-          <ol>
-            <li *ngFor="let ach of getAchievementsByYear(achievements)">
-              {{ ach }}</li>
-          </ol>
-      </ion-label>
+      <ion-select [(ngModel)]="year" label="Year" label-placement="stacked" fill="outline">
+        <ion-select-option *ngFor="let year of arr_year" [value]="year">
+          {{ year }}
+        </ion-select-option>
+      </ion-select>
     </ion-item>
   </ion-list>
-  
+
 </ion-content>

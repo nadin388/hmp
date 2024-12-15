@@ -30,7 +30,5 @@ export class ScheduleDetailsPage implements OnInit {
           this.schedule = data;
       });
     });
-
   }
-
 }
