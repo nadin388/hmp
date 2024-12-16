@@ -16,6 +16,7 @@ export class ProposalserviceService {
     return this.http.get(this.link + "get_proposal.php?idmember=" + idmember)
   }
 
+<<<<<<< HEAD
   submitProposal(idmember: number, idteam: number, description: string) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     const body = new URLSearchParams();
@@ -33,4 +34,6 @@ export class ProposalserviceService {
     return this.http.get(this.link + "applynewteam_team.php?idgame=" + idgame);
   }
 
+=======
+>>>>>>> 0f47cbeb1926d4d1096f37a6513688d32d29e674
 }
