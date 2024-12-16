@@ -1,43 +1,62 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="dark">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/apply-team"></ion-back-button>
-    </ion-buttons> 
-    <ion-title>Apply Team New</ion-title>
+  <ion-toolbar>
+    <ion-title>Apply New Team</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true" class="ion-padding">
+
+<ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Apply Team</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <ion-list>
+    <!-- Game Selection -->
     <ion-item>
-      <ion-label>Choose Game</ion-label>
-      <ion-select aria-label="game" placeholder="Choose Game">
-        <ion-select-option value="mobile legends">Mobile Legends</ion-select-option>
-        <ion-select-option value="pubg">PUBG</ion-select-option>
-        <ion-select-option value="valorant">Valorant</ion-select-option>
+      <ion-select
+        [(ngModel)]="selectedGame"
+        (ionChange)="onGameChange()"
+        label="Choose Game"
+        labelPlacement="stacked"
+        placeholder="Choose Game"
+      >
+        <ion-select-option *ngFor="let game of games" [value]="game.idgame">
+          {{ game.name }}
+        </ion-select-option>
       </ion-select>
     </ion-item>
+
+    <!-- Team Selection -->
     <ion-item>
-      <ion-label>Choose Team</ion-label>
-      <ion-select aria-label="team" placeholder="Choose Team">
-        <ion-select-option value="apples">Apples</ion-select-option>
-        <ion-select-option value="oranges">Oranges</ion-select-option>
-        <ion-select-option value="bananas">Bananas</ion-select-option>
+      <ion-select
+        [(ngModel)]="selectedTeam"
+        label="Choose Team"
+        labelPlacement="stacked"
+        placeholder="Choose Team"
+        [disabled]="!selectedGame"
+      >
+        <ion-select-option *ngFor="let team of teams" [value]="team.idteam">
+          {{ team.team }}
+        </ion-select-option>
       </ion-select>
+    </ion-item>
+
+    <!-- Description Textarea -->
+    <ion-item>
+      <ion-textarea
+        [(ngModel)]="description"
+        label="Description"
+        labelPlacement="stacked"
+        placeholder="Enter Description"
+        rows="3"
+      ></ion-textarea>
     </ion-item>
   </ion-list>
-  <ion-item>
-    <ion-label position="floating">Description</ion-label>
-    <ion-textarea
-      placeholder="Tell us the reason why you are good enough to join this team"
-    ></ion-textarea>
-  </ion-item>
-  <div class="ion-margin-top ion-text-center">
-    <ion-button expand="block" shape="round" color="primary">
+
+  <!-- Submit Button -->
+  <div class="ion-padding">
+    <ion-button expand="block" id="btnSubmit" (click)="applyTeam()">
       Apply Team
     </ion-button>
   </div>
