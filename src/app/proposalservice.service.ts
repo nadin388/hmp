@@ -15,5 +15,5 @@ export class ProposalserviceService {
   proposalList(idmember: string): Observable<any> {
     return this.http.get(this.link + "get_proposal.php?idmember=" + idmember)
   }
-  
+
 }

@@ -34,7 +34,8 @@ export class AchievementPage implements OnInit {
   getAchievementYears() {
     this.achievementService.getAchievementYear(this.idgame).subscribe((response) => {
       if (response.result === 'OK') {
-        this.arr_year = response.data.map((item: any) => item.date.toString());
+        // Pastikan response.data adalah array dan setiap item memiliki properti date
+        this.arr_year = response.data.map((item: any) => String(item.date)); // Konversi ke string
         if (response.data.length > 0) {
           this.imageUrl = response.data[0].image_url;
         }
@@ -46,18 +47,24 @@ export class AchievementPage implements OnInit {
   }
 
   loadAchievements() {
-    this.achievementService.getAchievementPerTeam(this.idgame).subscribe((response) => {
-      console.log('API Response:', response); // Log data
+    const selectedYear = this.year === 'All' ? null : this.year;
+    console.log("Selected Year:", selectedYear);  // Debugging tahun terpilih
+    this.achievementService.getAchievementsByYear(this.idgame, selectedYear).subscribe(response => {
+      console.log("Response from Backend:", response);  // Debugging respon backend
       if (response.result === 'OK') {
-        if (this.year !== 'All') {
-          this.ach_tampil = response.data.filter((achievement: any) => achievement.date === this.year);
-        } else {
-          this.ach_tampil = response.data;
-        }
-        console.log("Achievements loaded:", this.ach_tampil);
+        this.ach_tampil = response.data.map((item: any) => ({
+          name: item.name,
+          team: item.team,
+          date: item.date
+        }));
+        console.log('Filtered Achievements:', this.ach_tampil);  // Debugging data yang difilter
       } else {
-        console.error("Failed to load achievements:", response.message);
+        console.error('Failed to load achievements:', response.message);
       }
+    }, error => {
+      console.error("Error loading achievements:", error);  // Log error dari request
     });
   }
+
+
 }
