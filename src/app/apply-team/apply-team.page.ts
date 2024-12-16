@@ -19,8 +19,15 @@ export class ApplyTeamPage implements OnInit {
   ngOnInit() {
     this.idmember = localStorage.getItem("app_idmember") || "ID tidak ditemukan"
     console.log(this.idmember);
+    this.loadProposal();
+  }
+  ionViewWillEnter() {
+    this.loadProposal();
+  }
+  loadProposal() {
     this.proposalservice.proposalList(this.idmember).subscribe(
       (data) => {
+        console.log('Fetched proposals:', data);
         this.proposals = data;
         this.allProposals = data; 
       }

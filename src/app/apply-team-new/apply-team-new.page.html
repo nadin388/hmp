@@ -38,8 +38,12 @@
       >
         <ion-select-option *ngFor="let team of teams" [value]="team.idteam">
           {{ team.team }}
+          <div *ngIf="teams.length === 0">
+            <p>No teams available for this game.</p>
+          </div>
         </ion-select-option>
       </ion-select>
+      
     </ion-item>
 
     <!-- Description Textarea -->

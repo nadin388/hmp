@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProposalserviceService } from '../proposalservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-apply-team-new',
@@ -14,7 +15,10 @@ export class ApplyTeamNewPage implements OnInit {
   idmember: string = '';
   games: any[] = []; // Daftar game
 
-  constructor(private proposalservice: ProposalserviceService) {}
+  constructor(
+    private proposalservice: ProposalserviceService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.idmember = localStorage.getItem('app_idmember') || '0';
@@ -28,7 +32,6 @@ export class ApplyTeamNewPage implements OnInit {
       },
       (error) => {
         console.error('Error fetching games:', error);
-        alert('There was an error fetching games. Please try again.');
       }
     );
   }
@@ -37,7 +40,7 @@ export class ApplyTeamNewPage implements OnInit {
     if (this.selectedGame) {
       const gameId = Number(this.selectedGame);  // Pastikan menjadi angka
       if (!isNaN(gameId)) {
-        this.proposalservice.getTeams(gameId).subscribe(
+        this.proposalservice.getTeams(gameId.toString()).subscribe(
           (response) => {
             console.log('Data received:', response);
             if (Array.isArray(response.data)) {
@@ -45,12 +48,10 @@ export class ApplyTeamNewPage implements OnInit {
               console.log('Teams for', gameId, ':', this.teams);
             } else {
               console.error('Data is not an array:', response.data);
-              alert('Failed to load teams. Please try again.');
             }
           },
           (error) => {
             console.error('Error fetching teams:', error);
-            alert('There was an error fetching teams. Please try again.');
           }
         );
       } else {
@@ -73,8 +74,8 @@ export class ApplyTeamNewPage implements OnInit {
       this.description
     ).subscribe(
       (response) => {
-        alert('Your application has been successfully submitted!');
         console.log('Response:', response);
+        this.router.navigate(['/apply-team']);
       },
       (error) => {
         alert('There was an error submitting your application. Please try again later.');
