@@ -48,7 +48,7 @@
   </ion-content>
 </ion-menu>
 
-<ion-content *ngIf="!fname" class="ion-padding login-content">
+<ion-content *ngIf="!fname && !signUp" class="ion-padding login-content">
   <img src="/assets/logo.png" />
   <ion-card class="login-card">
     <ion-item>
@@ -61,6 +61,36 @@
   </ion-card>
   <div class="sign-up">
     <p>Don't have an account?</p>
-    <ion-button size="small">Sign Up</ion-button>
+    <ion-button size="small" (click)="signUpLabel()">Sign Up</ion-button>
+  </div>
+</ion-content>
+
+<ion-content *ngIf="signUp && !fname" class="ion-padding login-content">
+  <img src="/assets/logo.png" />
+  <ion-card class="login-card">
+    <ion-item>
+      <ion-input [(ngModel)]="newFirstName" label="First Name" placeholder="Enter your first name" labelPlacement="stacked"/>
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="newLastName" label="Last Name" placeholder="Enter your last name" labelPlacement="stacked" />
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="newUsername" label="Username" placeholder="Enter your username" labelPlacement="stacked" />
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="newPassword" type="password" placeholder="Enter a password" label="Password" labelPlacement="stacked" />
+    </ion-item>
+    <ion-item>
+      <ion-input [(ngModel)]="newRepeatPass" type="password" placeholder="Repeat the password" label="Repeat Password" labelPlacement="stacked" />
+    </ion-item>
+    <ion-item>
+      <ion-checkbox [(ngModel)]="newAcceptTerms" slot="start"></ion-checkbox>
+      <ion-label>I agree to the terms and conditions</ion-label>
+    </ion-item>
+    <ion-button expand="block" (click)="register()">Sign Up</ion-button>
+  </ion-card>
+  <div class="sign-up">
+    <p>Already have an account?</p>
+    <ion-button size="small" (click)="signUpLabel()">Login</ion-button>
   </div>
 </ion-content>

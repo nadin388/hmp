@@ -10,6 +10,13 @@ export class AppComponent {
   fname = ""
   username = ""
   password = ""
+  signUp: boolean = false
+  newFirstName = ""
+  newLastName = ""
+  newUsername = ""
+  newPassword = ""
+  newRepeatPass = ""
+  newAcceptTerms: boolean = false
 
   constructor(private userservice: UserserviceService) {
     this.fname = localStorage.getItem("app_fname") || ""
@@ -20,6 +27,18 @@ export class AppComponent {
 
   toggleDropdown() {
     this.dropdownOpen = !this.dropdownOpen;
+  }
+
+  signUpLabel() {
+    this.signUp =!this.signUp;
+    if(this.signUp) { 
+      this.newFirstName = ""
+      this.newLastName = ""
+      this.newUsername = ""
+      this.newPassword = ""
+      this.newRepeatPass = ""
+      this.newAcceptTerms = false;
+    }
   }
 
   login() {
@@ -47,5 +66,30 @@ export class AppComponent {
     localStorage.removeItem("app_password")
     localStorage.removeItem("app_idmember")
   }
+
+  register() {
+    if (!this.newFirstName ||!this.newLastName ||!this.newUsername ||!this.newPassword ||!this.newRepeatPass) {
+      alert('Please fill out all fields before registering.');
+      return;
+    }
+    if (this.newPassword!== this.newRepeatPass) {
+      alert('Passwords do not match.');
+      return;
+    }
+    if(this.newAcceptTerms = false) {
+      alert('You must accept the terms and conditions.');
+      return;
+    }
+    this.userservice.register(this.newFirstName, this.newLastName, this.newUsername, this.newPassword).subscribe(
+      (response: any) => {
+        if (response.result === 'success') {
+          alert('Account created successfully!');
+          this.signUpLabel();
+        } else {
+          alert(response.message);
+        }
+      }
+    );
+}
 
 }
