@@ -24,8 +24,9 @@ export class MembersPage implements OnInit {
     this.route.params.subscribe(params => {
       this.gameIndex = +params['gameIndex'];  
       this.teamIndex = +params['teamIndex']; 
-      this.selectedGame = this.teamsservice.games[this.gameIndex];
-      this.selectedTeam = this.teamsservice.games[this.gameIndex].teams[this.teamIndex];
+      //ini aku comment dulu supaya teams nya bisa jalan
+      // this.selectedGame = this.teamsservice.games[this.gameIndex]; 
+      // this.selectedTeam = this.teamsservice.games[this.gameIndex].teams[this.teamIndex];
     });
   }
 

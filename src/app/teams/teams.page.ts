@@ -8,20 +8,22 @@ import { TeamsserviceService } from '../teamsservice.service';
   styleUrls: ['./teams.page.scss'],
 })
 export class TeamsPage implements OnInit {
-
   gameIndex=0;
-  selectedGame:any={};
+  selectedGame: { data: any } = { data: null };
 
   constructor(private route: ActivatedRoute,private teamsService: TeamsserviceService) {}
 
   ngOnInit() {
-    // Mengambil parameter index dari route
-    this.route.params.subscribe(params => { //fungsi subscribe yaitu mengambil parameter form sebelumnya(what we play) berupa index
-      this.gameIndex = +params['index'];  
+    this.route.params.subscribe(params => {
+      console.log('Received idgame:', params['idgame']);
 
-     
-      this.selectedGame = this.teamsService.games[this.gameIndex]; //arayy kosong lalu dihubungkan dengan team service list games 
-                                                                    //ngambil index keberapa sesuai dengan index yang dikirim dari what we play
-    });
+      this.gameIndex = +params['idgame'];
+        this.teamsService.getTeams(this.gameIndex).subscribe((data) => {
+          console.log("DATA: ", data);
+          this.selectedGame = data;
+          console.log("Teams: ", this.selectedGame);
+        })
+      });
   }
+
 }

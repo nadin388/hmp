@@ -19,7 +19,7 @@ const routes: Routes = [
     loadChildren: () => import('./schedule-details/schedule-details.module').then( m => m.ScheduleDetailsPageModule)
   },
   {
-    path: 'teams/:index',
+    path: 'teams/:idgame',
     loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule) // ini mengirim parameter berupa index ke teams
   },
   {

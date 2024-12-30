@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+export interface Detail{
+  idgame?:number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsserviceService {
 
-  games =[
+  /*games =[
     {
       game_name: 'Valorant',
       url : 'https://th.bing.com/th/id/OIP.9rakECHIb12jtN_rTRuYxgHaEK?rs=1&pid=ImgDetMain',
@@ -146,7 +151,11 @@ export class TeamsserviceService {
         }
       ]
     }
-  ];
+  ];*/
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getTeams(idgame:number): Observable<any> {
+      return this.http.get("https://ubaya.xyz/hybrid/160422027/getteams.php?idgame="+idgame);
+  }
 }
