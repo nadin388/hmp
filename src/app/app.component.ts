@@ -76,20 +76,22 @@ export class AppComponent {
       alert('Passwords do not match.');
       return;
     }
-    if(this.newAcceptTerms = false) {
-      alert('You must accept the terms and conditions.');
-      return;
-    }
-    this.userservice.register(this.newFirstName, this.newLastName, this.newUsername, this.newPassword).subscribe(
-      (response: any) => {
-        if (response.result === 'success') {
-          alert('Account created successfully!');
-          this.signUpLabel();
-        } else {
-          alert(response.message);
+    if(this.newAcceptTerms === true) {
+      this.userservice.register(this.newFirstName, this.newLastName, this.newUsername, this.newPassword).subscribe(
+        (response: any) => {
+          if (response.result === 'success') {
+            alert('Account created successfully!');
+            this.signUpLabel();
+          } else {
+            alert(response.message);
+          }
         }
-      }
-    );
+      );
+    }
+    else {
+      alert('You must accept the terms and conditions.');
+    }
+
 }
 
 }
