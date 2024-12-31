@@ -18,16 +18,17 @@
       <ion-title size="large">Who We Are</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="group">
-    <img [src]="club.image" alt="Image" /> 
-    <h1><b>{{ club.name }}</b></h1>
-    <p>{{ club.description }}</p>
-
+  <div class="group" *ngIf="club">
+    <img [src]="club?.image" alt="Image" /> 
+    <h1><b>{{ club?.name }}</b></h1>
+    <p>{{ club?.description }}</p>
+  
     <div class="like-section">
-      <ion-button fill="outline" shape="round">
+      <ion-button (click)="addlikes()" fill="outline" shape="round">
         <ion-icon name="heart"></ion-icon>
-        {{ club.likes }}
+        {{ club?.likes }}
       </ion-button>
     </div>
   </div>
+  
 </ion-content>

@@ -14,7 +14,6 @@
     </ion-toolbar>
   </ion-header>
 
-  <!-- Section for Year Selection -->
   <ion-list class="achievement_css" *ngIf="arr_year.length > 0">
     <ion-item>
       <ion-label>
@@ -33,14 +32,12 @@
     </ion-item>
   </ion-list>
 
-  <!-- No Years Available -->
   <ion-list *ngIf="arr_year.length === 0">
     <ion-item>
       <ion-label>No years available.</ion-label>
     </ion-item>
   </ion-list>
 
-  <!-- List of Achievements -->
   <ion-list *ngIf="ach_tampil.length > 0">
     <ion-item *ngFor="let achievement of ach_tampil; let i = index">
       <ion-label>
@@ -49,7 +46,6 @@
     </ion-item>
   </ion-list>
 
-  <!-- No Achievements -->
   <ion-list *ngIf="ach_tampil.length === 0">
     <ion-item>
       <ion-label>

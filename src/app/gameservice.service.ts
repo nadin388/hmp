@@ -16,4 +16,8 @@ export class GameserviceService {
   getWhoWeAre(): Observable<any>{
     return this.http.get("https://ubaya.xyz/hybrid/160422027/whoweare.php");
   }
+
+  addLikesWhoWeAre():Observable<any>{
+    return this.http.get("https://ubaya.xyz/hybrid/160422027/addlikes.php");
+  }
 }

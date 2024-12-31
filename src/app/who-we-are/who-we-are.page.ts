@@ -18,4 +18,17 @@ export class WhoWeArePage implements OnInit {
       this.club = data[0];
     })
   } 
+  
+  addlikes() {
+    this.gameService.addLikesWhoWeAre().subscribe((response) => {
+      if (response.result === "success") {
+        this.club.likes = parseInt(this.club.likes, 10) + 1;// Update tampilan likes di UI
+      } else {
+        console.error("Gagal menambah likes:", response.message);
+      }
+    }, (error) => {
+      console.error("Terjadi kesalahan:", error);
+    });
+  }
+  
 }
