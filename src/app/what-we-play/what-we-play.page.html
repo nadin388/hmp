@@ -20,7 +20,7 @@
   </ion-header>
 
   <div class="card-container">
-    <ion-card *ngFor="let game of games; let i = index" class="small-card">
+    <ion-card *ngFor="let game of games" class="small-card">
         <img [alt]="game.name" [src]="game.image_url" class="card-image" />
         <ion-card-header>
           <ion-card-title>{{ game.name }}</ion-card-title>
