@@ -23,7 +23,7 @@ const routes: Routes = [
     loadChildren: () => import('./teams/teams.module').then( m => m.TeamsPageModule) // ini mengirim parameter berupa index ke teams
   },
   {
-    path: 'members/:gameIndex/:teamIndex',
+    path: 'members/:idgame/:idteam',
     loadChildren: () => import('./members/members.module').then( m => m.MembersPageModule) // ini mengirim parameter berupa index ke members
   },
   {

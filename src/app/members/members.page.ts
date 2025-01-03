@@ -10,24 +10,32 @@ import { TeamsserviceService } from '../teamsservice.service';
 export class MembersPage implements OnInit {
 
   gameIndex = 0;
-  teamIndex = 0; //dinisialisasi
-  selectedTeam:any={};
-  selectedGame:any={};
+  teamIndex = 0;
+  selectedTeam: any[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private teamsservice: TeamsserviceService
-  ) { }
+  constructor(private route: ActivatedRoute, private teamsservice: TeamsserviceService) { }
 
   ngOnInit() {
-    // Ambil index tim dari parameter URL, pastikan teamIndex bukan null
     this.route.params.subscribe(params => {
-      this.gameIndex = +params['gameIndex'];  
-      this.teamIndex = +params['teamIndex']; 
-      //ini aku comment dulu supaya teams nya bisa jalan
-      // this.selectedGame = this.teamsservice.games[this.gameIndex]; 
-      // this.selectedTeam = this.teamsservice.games[this.gameIndex].teams[this.teamIndex];
+      console.log('Received params:', params);
+  
+      if (params['idgame'] && params['idteam']) {
+        this.gameIndex = +params['idgame'];
+        this.teamIndex = +params['idteam'];
+  
+        this.teamsservice.getTeamsMembers(this.teamIndex, this.gameIndex).subscribe((response) => {
+          console.log('API Response:', response);
+  
+          if (response.result === 'OK') {
+            this.selectedTeam = response.data;
+            console.log("Selected Team Members: ", this.selectedTeam);
+          } else {
+            console.error("No Data Found: ", response.message);
+          }
+        });
+      } else {
+        console.error('Missing parameters idgame or idteam');
+      }
     });
-  }
-
+  }  
 }

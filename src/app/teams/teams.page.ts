@@ -16,7 +16,7 @@ export class TeamsPage implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       console.log('Received idgame:', params['idgame']);
-
+ 
       this.gameIndex = +params['idgame'];
         this.teamsService.getTeams(this.gameIndex).subscribe((data) => {
           console.log("DATA: ", data);

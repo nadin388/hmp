@@ -7,17 +7,25 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-img [src]="selectedGame?.url"></ion-img>
-  <ion-list>
-    <ion-item *ngFor="let member of selectedTeam.members; let i = index" lines="full">
-      <ion-avatar slot="start">
-        <ion-img [src]="member?.photo_url" alt="{{ member.member_name }}"></ion-img>
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ member.member_name }}</h2>
-        <p>{{ member.role }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+<ion-content>
+  <!-- Debug gambar game -->
+  <ion-img *ngIf="selectedTeam.length > 0" [src]="selectedTeam[0]?.game_image"></ion-img>
+
+  <!-- List anggota tim -->
+  <ion-card *ngIf="selectedTeam.length > 0">
+    <ion-list *ngFor="let member of selectedTeam" lines="full">
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img [src]="member?.image" alt="{{ member.full_name }}"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ member.full_name }}</h2>
+          <p>{{ member.description || 'No description available' }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <!-- Pesan error jika data kosong -->
+  <p *ngIf="selectedTeam.length === 0">No members found.</p>
 </ion-content>
