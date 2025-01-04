@@ -18,9 +18,7 @@
   <ion-card>
     <ion-img [src]=""></ion-img>
   </ion-card>
-  <!-- //ngambil data dari selected game list teams by index -->
   <ion-list *ngFor="let team of selectedGame?.data"> 
-    <!-- //pindah form ke members -->
     <ion-button [routerLink]="['/members', gameIndex, team.idteam]" fill="clear">
       {{ team.nameteam}}
     </ion-button>
