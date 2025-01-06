@@ -1,5 +1,6 @@
 import { Component } from '@angular/core'; 
 import { UserserviceService } from './userservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,7 @@ export class AppComponent {
   newRepeatPass = ""
   newAcceptTerms: boolean = false
 
-  constructor(private userservice: UserserviceService) {
+  constructor(private userservice: UserserviceService, private router: Router) {
     this.fname = localStorage.getItem("app_fname") || ""
     this.username = localStorage.getItem("app_username") || ""
   }
@@ -50,6 +51,8 @@ export class AppComponent {
           localStorage.setItem("app_fname", this.fname)
           localStorage.setItem("app_username", this.username)
           localStorage.setItem("app_idmember", response.idmember.toString());
+
+          this.router.navigate(['/tabs/what-we-play']);
         }
         else {
           alert(response.message)
