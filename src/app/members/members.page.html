@@ -10,7 +10,7 @@
 <ion-content>
   <!-- Debug gambar game -->
   <ion-img class="imageGame"*ngIf="selectedTeam.length > 0" [src]="selectedTeam[0]?.game_image"></ion-img>
-
+  <h1><b> {{ teamName }} </b></h1>
   <!-- List anggota tim -->
   <ion-card *ngIf="selectedTeam.length > 0">
     <ion-list *ngFor="let member of selectedTeam" lines="full">

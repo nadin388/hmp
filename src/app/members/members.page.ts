@@ -12,6 +12,7 @@ export class MembersPage implements OnInit {
   gameIndex = 0;
   teamIndex = 0;
   selectedTeam: any[] = [];
+  teamName: string = '';
 
   constructor(private route: ActivatedRoute, private teamsservice: TeamsserviceService) { }
 
@@ -22,6 +23,10 @@ export class MembersPage implements OnInit {
       if (params['idgame'] && params['idteam']) {
         this.gameIndex = +params['idgame'];
         this.teamIndex = +params['idteam'];
+
+        this.route.queryParams.subscribe(queryParams => {
+          this.teamName = queryParams['nameteam'] || 'Unknown Team';
+        });
   
         this.teamsservice.getTeamsMembers(this.teamIndex, this.gameIndex).subscribe((response) => {
           console.log('API Response:', response);
